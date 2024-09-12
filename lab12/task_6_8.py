@@ -30,13 +30,10 @@
 #     num+=1
 # print(f'next prime is {num}')
 
+
 #########################
 ####### task 8 #########
 ######################### 
-
-
-from random import random
-
 
 def isPrime(num):
     isPrime=True
@@ -46,10 +43,11 @@ def isPrime(num):
             isPrime=False
             return isPrime
         i+=1
+    return isPrime    
 x =eval(input('enter a positive number '))
 j=2
 while(j<=x):
-    if(isPrime(j)):
+    if(isPrime(j)==True):
         print(j)    
     j+=1
     
