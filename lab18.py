@@ -1,110 +1,214 @@
-##--------  Task One --------##
+def process_values(lst):
+    # Calculate average
+    avg = sum(lst) / len(lst)
+    
+    less_than_avg = []
+    equal_to_avg = []
+    greater_than_avg = []
+    
+    # Separate values based on their relation to the average
+    for value in lst:
+        if value < avg:
+            less_than_avg.append(value)
+        elif value == avg:
+            equal_to_avg.append(value)
+        else:
+            greater_than_avg.append(value)
+    
+    return less_than_avg, equal_to_avg, greater_than_avg
 
-# def max(arr):
-#     max_sum = float('-inf')
-#     max_sublist = []
+def get_user_input():
+    user_values = []
+    
+    while True:
+        user_input = input("Enter a number (or press enter to stop): ")
+        
+        if user_input == '':
+            break  # Exit loop on blank input
+        try:
+            # Convert input to float and append to list
+            num = float(user_input)
+            user_values.append(num)
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
+    
+    return user_values
 
-#     for sublist in arr:
-#         current_sum = sum(sublist)
-#         if current_sum > max_sum:
-#             max_sum = current_sum
-#             max_sublist = sublist
+# Get user input
+values = get_user_input()
 
-#     return max_sublist
+# If user provided any values, process them
+if values:
+    less_than_avg, equal_to_avg, greater_than_avg = process_values(values)
 
-
-# a = [[2, 3, 1], [5, 6, 1, 0, -2], [3, 4], [5, 6, 7, 2]]
-# print(max(a))  
-
-
-##--------  Task Two --------##
-
+    # Display the results
+    print("\nValues less than the average:", less_than_avg)
+    print("Values equal to the average:", equal_to_avg)
+    print("Values greater than the average:", greater_than_avg)
+else:
+    print("No values were entered.")
 
 
 
-# def split_list(my_list, length):
-#     mid = len(my_list) // 2
-#     first_part = my_list[length]
-#     second_part = my_list[length]
-#     return first_part, second_part
+
+
+
+
+
+def isSorted(lst):
+    # Check if the list is sorted in non-decreasing order
+    return lst == sorted(lst)
+
+def get_user_input():
+    user_values = []
+    
+    while True:
+        user_input = input("Enter a number (or press enter to stop): ")
+        
+        if user_input == '':
+            break  # Exit loop on blank input
+        try:
+            # Convert input to float and append to list
+            num = float(user_input)
+            user_values.append(num)
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
+    
+    return user_values
+
+# Main program
+values = get_user_input()
+
+if values:
+    if isSorted(values):
+        print("The list is sorted.")
+    else:
+        print("The list is not sorted.")
+else:
+    print("No values were entered.")
+
+
+
+def bestOfTwo(list1, list2):
+    # Initialize an empty list to store the result
+    result = []
+    
+    # Iterate over the lists using their indices
+    for i in range(len(list1)):
+        # Compare the values at the same index in both lists and append the greater one
+        if list1[i] > list2[i]:
+            result.append(list1[i])
+        else:
+            result.append(list2[i])
+    
+    return result
 
 # Example usage:
-# original_list = [1, 2, 3, 4, 5, 6, 7, 8]
-# length = 3
-# first_part, second_part = split_list(original_list, length)
+list1 = [2, 4, -3, 1.2, 6, -10]
+list2 = [3, 3, 2, 0, 100, -20]
 
-# print("Original list:", original_list)
-# print(f"First part ({length} elements):", first_part)
-# print("Second part:", second_part)
-
-
-
-
-# A = [[-2,1,4],[5,7,0],[1,2,4]]
-# for i in A:
-#     for j in i:
-#         print(f'{j:6.2f}',end=' ')
-#     print()
-
-# A=[]
-# for r in range(3):
-#     print(f'Enter row-{r+1}.')
-#     a=[]
-#     for c in range(3):
-#         n=eval(input(f'Enter element-{c+1}:'))
-#         a.append(n)
-#     A.append(a)
-# print(A)
-
-
-# Write a program to split a given list into two parts where the length of the first part of the list is 
-# givena =[1,2,3,4,5,6,7,8]
-
-
-myList=[1,2,3,4,5,6,7,8,9]
-split=5
-
-def splitList(list,splitIndex):
-    partOne=[]
-    partTwo=[]
-    for i in range(split):
-        partOne.append(list[i])
-    for j in range(split,len(list)):
-        partTwo.append(list[j])
-    return[partOne,partTwo]    
-  
-
-print(f'first part is {splitList(myList,split)[0]} and last past is{splitList(myList,split)[1]}')     
+# Call the function and display the result
+best_list = bestOfTwo(list1, list2)
+print("Best of two lists:", best_list)
 
 
 
 
-# Write a Python program to Merge two given lists of sublists in a way that each sublist on 
-# corresponding index merges together. Again, do it by creating a function named as 
-# mergeSubLists having two input arguments (assuming both are lists of equal number of 
-# sublists) and output as a bigger list. See the example of input and output here:
-# 5 | P a g e
-# Original lists:
-# [[1, 3], [5, 7], [9, 11]]
-# [[2, 4], [6, 8], [10, 12, 14]]
-# Merged list:
-# [[1, 3, 2, 4], [5, 7, 6, 8], [9, 11, 10, 12, 14]
 
-def mergeLists(listOne,listTwo):
-    # newListA=[]
-    # for i in range(len(listOne)):
-    #     a=[]
-    #     a.append(listOne[i])
-    #     a.append(listTwo[i])
-    #     newListA.append(a)
-    # return newListA
-    b = []
-    c = []
-    prev = 0
-    for i in listOne:
-        b += i
-        b += listTwo[prev]
-        prev += 1
-    c.append(b)
-    return c
-print(mergeLists([[1,2],[3,4],[5,6]],[[7,8],[9,10],[11,12]]))
+
+
+
+
+def countRange(lst, start, end):
+    count = 0
+    # Iterate through the list and check if each value is within the given range
+    for num in lst:
+        if start <= num <= end:
+            count += 1
+    return count
+
+# Main program to create a list and use the function
+numbers = [1, 5, 8, 10, 15, 20, 25, 30, 35]
+
+# Example usage: Count elements between 10 and 25 (inclusive)
+start_range = 10
+end_range = 25
+result = countRange(numbers, start_range, end_range)
+
+print(f"Count of elements between {start_range} and {end_range}: {result}")
+
+
+
+
+
+
+def dispList(items):
+    if len(items) == 0:
+        return ""  # Return an empty string if the list is empty
+    elif len(items) == 1:
+        return items[0]  # Return the single item as a string
+    elif len(items) == 2:
+        return f"{items[0]} and {items[1]}"  # Join two items with "and"
+    else:
+        result = ""
+        # Iterate through the items except the last one
+        for i in range(len(items) - 1):
+            result += items[i]  # Add the current item
+            if i < len(items) - 2:
+                result += ", "  # Add a comma after each item except the last one
+        result += " and " + items[-1]  # Add "and" before the last item
+        return result
+
+# Example usage:
+fruits1 = ['Apple', 'Banana', 'Orange', 'Pear', 'Mango']
+print(dispList(fruits1))  # Output: Apple, Banana, Orange, Pear and Mango
+
+fruits2 = ['Apple', 'Banana']
+print(dispList(fruits2))  # Output: Apple and Banana
+
+
+
+
+
+import random
+
+# Initialize player scores
+player1_score = 0
+player2_score = 0
+
+def scoreUpdate():
+    global player1_score, player2_score, die1, die2
+    
+    # Check if die1 is greater than die2
+    if die1 > die2:
+        player1_score += (die1 - die2)  # Add the difference to player1's score
+    elif die2 > die1:
+        player2_score += (die2 - die1)  # Add the difference to player2's score
+
+    # Check if scores are equal
+    if player1_score == player2_score:
+        player1_score = 0  # Reset player1's score
+        player2_score = 0  # Reset player2's score
+
+# Main game loop
+while True:
+    # Roll the dice
+    die1 = random.randint(1, 6)  # Simulate rolling die 1
+    die2 = random.randint(1, 6)  # Simulate rolling die 2
+    
+    print(f"Die1: {die1}, Die2: {die2}")
+    
+    # Update scores
+    scoreUpdate()
+    
+    # Display current scores
+    print(f"Player 1 Score: {player1_score}, Player 2 Score: {player2_score}")
+
+    # Check for a winner
+    if player1_score >= 20:
+        print("Player 1 wins!")
+        break
+    elif player2_score >= 20:
+        print("Player 2 wins!")
+        break
+
