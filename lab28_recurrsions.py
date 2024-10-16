@@ -20,12 +20,13 @@ def permutations(elements):
         remaining_elements = elements[:i] + elements[i+1:]
         for perm in permutations(remaining_elements):
             perms.append([current] + perm)
-
+    
     return perms
 
-elements = [1,2,7]
+elements = [1,2,3]
 
-print(permutations(elements))
+for perms in permutations(elements):
+    print(perms)
 
 
 
