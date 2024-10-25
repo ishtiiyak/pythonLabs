@@ -35,10 +35,31 @@ def fib(n):
         value = 1
     else:
         value = fib(n - 1) + fib(n - 2)
-    print(value)
+    # print(value)
     # Store the computed value in cache
     fib_cache[n] = value
     # print(fib_cache.values())
     return value
-print(fib(10))  # Output: 55
+
+
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# print(factorial(235))  # Output: 120
+
+# print(fib(10))  # Output: 55
+
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        print(n,end=' ')
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+# Example: Find the 10th Fibonacci number
+print(fibonacci(100))  # Output: 55
 
