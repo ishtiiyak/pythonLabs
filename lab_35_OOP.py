@@ -33,7 +33,7 @@ class StudentGroup:
         self.group_members = {}
 
     def pair_students(self):
-        for i in range(len(self.students_list1)):
+        for i in range(4):
             self.group_members[self.students_list1[i]] = self.students_list2[i]
 
     def print_group_members(self):
