@@ -30,15 +30,13 @@ class Student:
                 un_reg_subs.append(subject)
         return un_reg_subs
 
-
-
 math = Subject("Mathematics")
 science = Subject("Science")
 history = Subject("History")
 english = Subject("English")
+chemistry=Subject("Chemistry")
 
-
-all_subjects = [math, science, history, english]
+all_subjects = [math, science, history, english,chemistry]
 
 
 student1 = Student("Alice")
