@@ -1,6 +1,6 @@
-Name, Age, City
-Alice, 30, New York
-Bob, 25, Los Angeles
-Charlie, 35, Chicago
-David, 40, Miami
-Eve, 28, San Francisco
+From alice@example.com Mon Jan 1 10:00:00 2024
+This is a sample line without email.
+From bob.smith@domain.org Tue Feb 2 11:11:11 2024
+From another.line@example.com Wed Mar 3 12:22:22 2024
+Some random text here.
+From carol-jane123@website.net Thu Apr 4 13:33:33 2024
