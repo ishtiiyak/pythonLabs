@@ -26,27 +26,25 @@ class Employee:
 # print(emp1.groupmembers)
 # print(emp2.all_members)
 
+class StudentGroup:
+    def __init__(self, students_list1, students_list2):
+        self.students_list1 = students_list1
+        self.students_list2 = students_list2
+        self.group_members = {}
 
-# Set group memberships for corresponding students
-# Verify the results by printing group members of the first list
+    def pair_students(self):
+        for i in range(len(self.students_list1)):
+            self.group_members[self.students_list1[i]] = self.students_list2[i]
 
+    def print_group_members(self):
+        for student in self.students_list1:
+            print(f"{student} is paired with {self.group_members[student]}")
 
-class Student:
-    all_members = []
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-        self.groupmembers = None
-        Student.all_members.append(self)
-        def __repr__(self):
-            return f'{self.name}--{self.age}'
-        def set_members(self, other_member):
-            if (self.groupmembers == None):
-                other_member.groupmembers = self
-                self.groupmembers = other_member
+students_list1 = ["hamza", "ali", "ahmad", "davoo"]
+students_list2 = ["mahad", "zafar", "hanan", "jafar"]
 
-# Create two lists of students at least 10
-list1 = [Student('Ali', 20), Student('Ahmad', 21), Student('huss',22),Student('nasir',19)]
-list2 = [Student('Ali', 20), Student('Ahmad', 21), Student('huss',22),Student('nasir',19)]
+student_group = StudentGroup(students_list1, students_list2)
 
+student_group.pair_students()
 
+student_group.print_group_members()

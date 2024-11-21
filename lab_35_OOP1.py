@@ -1,47 +1,17 @@
-class StudentGroup:
-    def __init__(self, students_list1, students_list2):
-        self.students_list1 = students_list1
-        self.students_list2 = students_list2
-        self.group_members = {}
-
-    def pair_students(self):
-        for i in range(len(self.students_list1)):
-            self.group_members[self.students_list1[i]] = self.students_list2[i]
-
-    def print_group_members(self):
-        for student in self.students_list1:
-            print(f"{student} is paired with {self.group_members[student]}")
-
-# students_list1 = ["Alice", "Bob", "Charlie", "David"]
-# students_list2 = ["Eve", "Frank", "Grace", "Hannah"]
-
-# student_group = StudentGroup(students_list1, students_list2)
-
-# student_group.pair_students()
-
-# student_group.print_group_members()
-
-
-
-
-
-
-
+#friv game 
 class Subject:
-    def __init__(self, subject_name, subject_code):
+    def __init__(self, subject_name):
         self.subject_name = subject_name
-        self.subject_code = subject_code
 
     def __str__(self):
-        return f"{self.subject_name} ({self.subject_code})"
+        return f"{self.subject_name}"
 
 
 class Student:
-    all_registered_subjects = [] 
+    all_registered_subjects = []  
 
-    def __init__(self, name, student_id):
+    def __init__(self, name):
         self.name = name
-        self.student_id = student_id
         self.registered_subjects = []
 
     def register_subject(self, subject):
@@ -49,8 +19,8 @@ class Student:
             self.registered_subjects.append(subject)
             Student.all_registered_subjects.append(subject)  
             print(f"{self.name} has registered for {subject}.")
-        else:
-            print(f"{self.name} is already registered for {subject}.")
+        # else:
+        #     print(f"{self.name} is already registered for {subject}.")
 
     @classmethod
     def notRegSub(cls, all_subjects):
@@ -61,25 +31,26 @@ class Student:
         return unregistered_subjects
 
 
-math = Subject("Mathematics", "MATH101")
-science = Subject("Science", "SCI101")
-history = Subject("History", "HIST101")
-english = Subject("English", "ENG101")
+
+math = Subject("Mathematics")
+science = Subject("Science")
+history = Subject("History")
+english = Subject("English")
+
 
 all_subjects = [math, science, history, english]
 
 
-student1 = Student("Alice", "S001")
-student2 = Student("Bob", "S002")
+student1 = Student("Alice")
+student2 = Student("Bob")
 
 
 student1.register_subject(math)
 student1.register_subject(science)
-student2.register_subject(math) 
+student2.register_subject(math)
 
 
 unregistered_subjects = Student.notRegSub(all_subjects)
-print("Subjects with no registrations:")
+print("\nSubjects with no registrations:")
 for subject in unregistered_subjects:
     print(subject)
-    
