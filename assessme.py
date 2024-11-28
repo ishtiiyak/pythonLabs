@@ -1,29 +1,30 @@
 from functools import reduce
 
-product_name = ["Laptop", "Tablet", "smartphone", "Monitor", "Keyboard"]
-product_categories = ["ELectronics", "Electronics", "ELectronics", "Peripherals", "Peripherals"]
-stock_levels = [[300, 250, 200], [500, 450, 400], [700, 650, 600], [400, 350, 300], [1000, 950, 900]]
-sales_data = [[50, 60, 70, 80, 90, 100], [30, 35, 40, 45, 50, 55], [100, 110, 120, 130, 140, 150], [20, 25, 30, 35, 40, 45], [150, 160, 170, 180, 190, 200]]
+productNames = ["Laptop", "Tablet", "smartphone", "Monitor", "Keyboard"]
+productCategories = ["Electronics", "Electronics", "Electronics", "Peripherals", "Peripherals"]
+stockLevels = [[300, 250, 200], [500, 450, 400], [700, 650, 600], [400, 350, 300], [1000, 950, 900]]
+salesData = [[50, 60, 70, 80, 90, 100], [30, 35, 40, 45, 50, 55], [100, 110, 120, 130, 140, 150], [20, 25, 30, 35, 40, 45], [150, 160, 170, 180, 190, 200]]
 prices = [200000, 45000, 150000, 30000, 15000]
 
-b = list(zip(product_name, product_categories, stock_levels, sales_data, prices))
-print(b)
+productData = list(zip(productNames, productCategories, stockLevels, salesData, prices))
+print(productData)
 
-d = list(map(lambda x: sum(x[2]), b))
-print(d)
+totalStock = list(map(lambda x: sum(x[2]), productData))
+print(totalStock)
 
-z = list(filter(lambda x: sum(x[2]) < 900, b))
-print(z)
+lowStockProducts = list(filter(lambda x: sum(x[2]) < 900, productData))
+print(lowStockProducts)
 
-total_sales = list(map(lambda x: (x[0], sum(x[3])), b))
+totalSales = list(map(lambda x: (x[0], sum(x[3])), productData))
 
 
-def projected_revenue(products):
-    for i in products:
-        name = i[0] 
-        price = i[4]
-        revenue = sum(i[3]) * price  
+
+def projectedRevenue(products):
+    for product in products:
+        name = product[0]
+        price = product[4]
+        revenue = sum(product[3]) * price
         yield (name, revenue)
 
-for name, revenue in projected_revenue(b):
+for name, revenue in projectedRevenue(productData):
     print(f"Product: {name}, Projected Revenue: {revenue}")
