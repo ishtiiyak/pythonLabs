@@ -24,7 +24,7 @@ def projectedRevenue(products):
         name = product[0]
         price = product[4]
         revenue = sum(product[3]) * price
-        yield (name, revenue)
+        yield(name, revenue)
 
 for name, revenue in projectedRevenue(productData):
     print(f"Product: {name}, Projected Revenue: {revenue}")
