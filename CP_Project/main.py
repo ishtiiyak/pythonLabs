@@ -1,114 +1,114 @@
 
 
-##############SImple##################
-# import pandas as pd
-# import matplotlib.pyplot as plt
-# import seaborn as sns
-# import os
+#############SImple##################
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
 
 
-# def load_data(file_path):
-#     """Load and validate data from the CSV file."""
-#     if not os.path.exists(file_path):
-#         print(f"Error: File '{file_path}' does not exist.")
-#         return None
+def load_data(file_path):
+    """Load and validate data from the CSV file."""
+    if not os.path.exists(file_path):
+        print(f"Error: File '{file_path}' does not exist.")
+        return None
 
-#     df = pd.read_csv(file_path)
-#     required_columns = [
-#         'Company', 'Period', 'Revenue', 'Net Income',
-#         'Liabilities', 'Assets', 'Equity', 'ROA (%)',
-#         'ROE (%)', 'Debt to Equity'
-#     ]
-#     missing_columns = [col for col in required_columns if col not in df.columns]
-#     if missing_columns:
-#         print(f"Error: Missing required columns: {missing_columns}")
-#         return None
+    df = pd.read_csv(file_path)
+    required_columns = [
+        'Company', 'Period', 'Revenue', 'Net Income',
+        'Liabilities', 'Assets', 'Equity', 'ROA (%)',
+        'ROE (%)', 'Debt to Equity'
+    ]
+    missing_columns = [col for col in required_columns if col not in df.columns]
+    if missing_columns:
+        print(f"Error: Missing required columns: {missing_columns}")
+        return None
 
-#     print(f"Loaded {len(df)} records successfully!")
-#     return df
-
-
-# def generate_summary(df):
-#     """Generate summary statistics from the DataFrame."""
-#     try:
-#         total_revenue = df['Revenue'].sum()
-#         avg_revenue_by_company = df.groupby('Company')['Revenue'].mean().to_dict()
-#         yearly_revenue = df.groupby(df['Period'].str.split('/').str[2])['Revenue'].sum().to_dict()
-
-#         summary = {
-#             "Total Revenue": total_revenue,
-#             "Average Revenue by Company": avg_revenue_by_company,
-#             "Yearly Revenue": yearly_revenue
-#         }
-#         return summary
-#     except Exception as e:
-#         print(f"Error generating summary: {e}")
-#         return {}
+    print(f"Loaded {len(df)} records successfully!")
+    return df
 
 
-# def export_summary(summary, file_path):
-#     """Export the summary to a CSV file."""
-#     try:
-#         df = pd.DataFrame(list(summary.items()), columns=['Metric', 'Value'])
-#         df.to_csv(file_path, index=False)
-#         print(f"Summary saved to {file_path}")
-#     except Exception as e:
-#         print(f"Error exporting summary: {e}")
+def generate_summary(df):
+    """Generate summary statistics from the DataFrame."""
+    try:
+        total_revenue = df['Revenue'].sum()
+        avg_revenue_by_company = df.groupby('Company')['Revenue'].mean().to_dict()
+        yearly_revenue = df.groupby(df['Period'].str.split('/').str[2])['Revenue'].sum().to_dict()
+
+        summary = {
+            "Total Revenue": total_revenue,
+            "Average Revenue by Company": avg_revenue_by_company,
+            "Yearly Revenue": yearly_revenue
+        }
+        return summary
+    except Exception as e:
+        print(f"Error generating summary: {e}")
+        return {}
 
 
-# def generate_visualizations(df, output_folder):
-#     """Generate visualizations and save them to the output folder."""
-#     try:
-#         os.makedirs(output_folder, exist_ok=True)
-
-#         # Top Companies by Revenue
-#         top_companies = df.groupby('Company')['Revenue'].sum().sort_values(ascending=False).head(5)
-#         plt.figure(figsize=(10, 6))
-#         sns.barplot(x=top_companies.index, y=top_companies.values, palette='viridis')
-#         plt.title("Top 5 Companies by Revenue")
-#         plt.ylabel("Revenue")
-#         plt.savefig(os.path.join(output_folder, "top_companies_by_revenue.png"))
-#         plt.close()
-
-#         # Revenue by Year
-#         df['Year'] = df['Period'].str.split('/').str[2]
-#         revenue_by_year = df.groupby('Year')['Revenue'].sum()
-#         plt.figure(figsize=(10, 6))
-#         revenue_by_year.plot(kind='line', marker='o', color='blue')
-#         plt.title("Yearly Revenue Trends")
-#         plt.ylabel("Revenue")
-#         plt.savefig(os.path.join(output_folder, "yearly_revenue_trends.png"))
-#         plt.close()
-
-#         print(f"Visualizations saved to {output_folder}")
-#     except Exception as e:
-#         print(f"Error generating visualizations: {e}")
+def export_summary(summary, file_path):
+    """Export the summary to a CSV file."""
+    try:
+        df = pd.DataFrame(list(summary.items()), columns=['Metric', 'Value'])
+        df.to_csv(file_path, index=False)
+        print(f"Summary saved to {file_path}")
+    except Exception as e:
+        print(f"Error exporting summary: {e}")
 
 
-# def main():
-#     file_path = r"C:\Users\BUZZ TECH\pythonLabs\CP_Project\top.csv"
-#     output_folder = r"C:\Users\BUZZ TECH\pythonLabs\CP_Project\reports"
-#     summary_file = os.path.join(output_folder, "summary_report.csv")
+def generate_visualizations(df, output_folder):
+    """Generate visualizations and save them to the output folder."""
+    try:
+        os.makedirs(output_folder, exist_ok=True)
 
-#     # Load Data
-#     data = load_data(file_path)
-#     if data is None:
-#         return
+        # Top Companies by Revenue
+        top_companies = df.groupby('Company')['Revenue'].sum().sort_values(ascending=False).head(5)
+        plt.figure(figsize=(10, 6))
+        sns.barplot(x=top_companies.index, y=top_companies.values, palette='viridis')
+        plt.title("Top 5 Companies by Revenue")
+        plt.ylabel("Revenue")
+        plt.savefig(os.path.join(output_folder, "top_companies_by_revenue.png"))
+        plt.close()
 
-#     # Generate and Display Summary
-#     summary = generate_summary(data)
-#     for key, value in summary.items():
-#         print(f"{key}: {value}")
+        # Revenue by Year
+        df['Year'] = df['Period'].str.split('/').str[2]
+        revenue_by_year = df.groupby('Year')['Revenue'].sum()
+        plt.figure(figsize=(10, 6))
+        revenue_by_year.plot(kind='line', marker='o', color='blue')
+        plt.title("Yearly Revenue Trends")
+        plt.ylabel("Revenue")
+        plt.savefig(os.path.join(output_folder, "yearly_revenue_trends.png"))
+        plt.close()
 
-#     # Export Summary
-#     export_summary(summary, summary_file)
-
-#     # Generate Visualizations
-#     generate_visualizations(data, output_folder)
+        print(f"Visualizations saved to {output_folder}")
+    except Exception as e:
+        print(f"Error generating visualizations: {e}")
 
 
-# if __name__ == "__main__":
-#     main()
+def main():
+    file_path = r"C:\Users\BUZZ TECH\pythonLabs\CP_Project\top.csv"
+    output_folder = r"C:\Users\BUZZ TECH\pythonLabs\CP_Project\reports"
+    summary_file = os.path.join(output_folder, "summary_report.csv")
+
+    # Load Data
+    data = load_data(file_path)
+    if data is None:
+        return
+
+    # Generate and Display Summary
+    summary = generate_summary(data)
+    for key, value in summary.items():
+        print(f"{key}: {value}")
+
+    # Export Summary
+    export_summary(summary, summary_file)
+
+    # Generate Visualizations
+    generate_visualizations(data, output_folder)
+
+
+if __name__ == "__main__":
+    main()
 
 
 
