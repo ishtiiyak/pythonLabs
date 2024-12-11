@@ -1,4 +1,4 @@
-0class BankTransactionAnalyzer:
+class BankTransactionAnalyzer:
     def __init__(self, id, name, transactionDate, transactionType, amount):
         self.id = id
         self.name = name
@@ -12,12 +12,12 @@
     
     transactions = []
 
-    def load_data(self, path):
+    # def load_data(self, path):
        
-        with open(path, 'r') as file:
-            for line in file:
-                data = line.strip().split(",")
-                    self.transactions.append()
+    #     with open(path, 'r') as file:
+    #         for line in file:
+    #             data = line.strip().split(",")
+    #                 self.transactions.append()
 
     def total_amount_by_type(self, transaction_type):
         total = 0

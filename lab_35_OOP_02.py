@@ -4,7 +4,9 @@ class Subject:
         self.sub_name = sub_name
 
     def __str__(self):
-        return f"{self.sub_name}"
+        return 
+    
+    
 
 
 class Student:
