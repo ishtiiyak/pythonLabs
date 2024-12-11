@@ -1,4 +1,4 @@
-class BankTransactionAnalyzer:
+0class BankTransactionAnalyzer:
     def __init__(self, id, name, transactionDate, transactionType, amount):
         self.id = id
         self.name = name
@@ -37,12 +37,12 @@ class BankTransactionAnalyzer:
 
 
 student.load_data('input.txt')
-student = BankTransactionAnalyzer('001', 'Alice', '2023-11-22', 'Deposit', 100)
+student = BankTransactionAnalyzer('001', 'Alice', '2023-11-22', 'Deposit', 10000)
 
 withdrawal = student.total_amount_by_type("Withdrawal")
 print("Total Withdrawal Amount:", withdrawal)
 
-large_transactions = student.flag_large_transactions(150)
+large_transactions = student.flag_large_transactions(15000)
 print("Large Transactions:")
 for transaction in large_transactions:
     print(transaction)
