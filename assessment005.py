@@ -16,12 +16,8 @@ class BankTransactionAnalyzer:
        
         with open(path, 'r') as file:
             for line in file:
-                data = line.strip().split(",")  
-                if len(data) == 5:  
-                    id, name, transactionDate, transactionType, amount = data
-                    amount = float(amount)  
-                    obj = BankTransactionAnalyzer(id, name, transactionDate, transactionType, amount)
-                    self.transactions.append(obj)
+                data = line.strip().split(",")
+                    self.transactions.append()
 
     def total_amount_by_type(self, transaction_type):
         total = 0
@@ -39,12 +35,12 @@ class BankTransactionAnalyzer:
 
 
 
-student = BankTransactionAnalyzer('t1', 'Alice', '2023-11-22', 'Deposit', 100)
 
 student.load_data('input.txt')
+student = BankTransactionAnalyzer('t1', 'Alice', '2023-11-22', 'Deposit', 100)
 
-total_withdrawal = student.total_amount_by_type("Withdrawal")
-print("Total Withdrawal Amount:", total_withdrawal)
+withdrawal = student.total_amount_by_type("Withdrawal")
+print("Total Withdrawal Amount:", withdrawal)
 
 large_transactions = student.flag_large_transactions(150)
 print("Large Transactions:")
