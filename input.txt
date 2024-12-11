@@ -1,0 +1,2 @@
+0001,Hania Zehra,2024-01-01,Deposit,50000
+0002,fatima Zehra,2024-02-01,Withdrawal,30000
