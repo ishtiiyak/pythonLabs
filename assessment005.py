@@ -6,14 +6,22 @@ class BankTransactionAnalyzer:
         self.transactionType = transactionType
         self.amount = amount
 
+    def __str__(self):
+        return f"ID: {self.id}, Name: {self.name}, Date: {self.transactionDate}, Type: {self.transactionType}, Amount: {self.amount}"
+
+    # Instance variable for transactions
     transactions = []
 
     def load_data(self, path):
+        # Open the file and read line by line
         with open(path, 'r') as file:
             for line in file:
-                # Parse the data from each line and create BankTransactionAnalyzer objects
-                # ... (implementation to parse data and create objects)
-                transactions.append(obj)
+                data = line.strip().split(",")  # Assuming CSV-like data
+                if len(data) == 5:  # Ensure all fields are present
+                    id, name, transactionDate, transactionType, amount = data
+                    amount = float(amount)  # Convert amount to float
+                    obj = BankTransactionAnalyzer(id, name, transactionDate, transactionType, amount)
+                    self.transactions.append(obj)
 
     def total_amount_by_type(self, transaction_type):
         total = 0
@@ -29,8 +37,7 @@ class BankTransactionAnalyzer:
                 large_transactions.append(transaction)
         return large_transactions
 
-    def __str__(self):
-        return f"ID: {self.id}, Name: {self.name}, Date: {self.transactionDate}, Type: {self.transactionType}, Amount: {self.amount}"
+
 
 student = BankTransactionAnalyzer('t1', 'Alice', '2023-11-22', 'Deposit', 100)
 
@@ -43,4 +50,3 @@ large_transactions = student.flag_large_transactions(150)
 print("Large Transactions:")
 for transaction in large_transactions:
     print(transaction)
-              
