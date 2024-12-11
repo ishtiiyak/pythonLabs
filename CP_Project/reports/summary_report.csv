@@ -1,4 +1,16 @@
-Metric,Value
-Total Revenue,4880609284767
-Average Revenue by Company,"{'Allianz SE': 13015427603.0, 'BASF SE': 13206929984.59375, 'BMW AG': 12793626967.75, 'Bayer AG': 12280150040.53125, 'Daimler AG': 12982945622.28125, 'Deutsche Bank AG': 12552273759.25, 'Deutsche Telekom AG': 12948836356.78125, 'Merck KGaA': 13429626794.3125, 'Porsche AG': 11801739996.5, 'SAP SE': 12416678253.5625, 'Siemens AG': 12662499402.90625, 'Volkswagen AG': 12428305367.5}"
-Yearly Revenue,"{'2017': 627434653054, '2018': 581954993925, '2019': 612962535344, '2020': 608094222724, '2021': 609809764565, '2022': 588328128277, '2023': 593572073082, '2024': 658452913796}"
+Metric,Value,Company,ROE (%)
+Total Revenue,4880609284767.0,,
+Average Profit Margin (%),9.871514817853301,,
+Top Performers (by ROE),,Bayer AG,21.11917274
+Top Performers (by ROE),,Porsche AG,17.85460959
+Top Performers (by ROE),,Siemens AG,17.57531297
+Top Performers (by ROE),,Deutsche Bank AG,16.20624209
+Top Performers (by ROE),,SAP SE,15.86396995
+Debt to Equity Trends - 2017,1.0173589020208333,,
+Debt to Equity Trends - 2018,1.4705472695208333,,
+Debt to Equity Trends - 2019,1.0583411597291665,,
+Debt to Equity Trends - 2020,1.1846198294583334,,
+Debt to Equity Trends - 2021,1.1334296900833334,,
+Debt to Equity Trends - 2022,1.3172372790208333,,
+Debt to Equity Trends - 2023,1.5879038233541667,,
+Debt to Equity Trends - 2024,1.1152036410416668,,
