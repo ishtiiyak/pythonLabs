@@ -1,4 +1,4 @@
-#from functools import reduce
+from functools import reduce
 
 productNames = ["Laptop", "Tablet", "smartphone", "Monitor", "Keyboard"]
 productCategories = ["Electronics", "Electronics", "Electronics", "Peripherals", "Peripherals"]
