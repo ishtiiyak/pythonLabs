@@ -9,17 +9,17 @@ class BankTransactionAnalyzer:
     def __str__(self):
         return f"ID: {self.id}, Name: {self.name}, Date: {self.transactionDate}, Type: {self.transactionType}, Amount: {self.amount}"
 
-    # Instance variable for transactions
+    
     transactions = []
 
     def load_data(self, path):
-        # Open the file and read line by line
+       
         with open(path, 'r') as file:
             for line in file:
-                data = line.strip().split(",")  # Assuming CSV-like data
-                if len(data) == 5:  # Ensure all fields are present
+                data = line.strip().split(",")  
+                if len(data) == 5:  
                     id, name, transactionDate, transactionType, amount = data
-                    amount = float(amount)  # Convert amount to float
+                    amount = float(amount)  
                     obj = BankTransactionAnalyzer(id, name, transactionDate, transactionType, amount)
                     self.transactions.append(obj)
 
