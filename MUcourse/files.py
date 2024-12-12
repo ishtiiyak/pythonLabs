@@ -4,3 +4,4 @@ for line in fhandle:
     if not line.startswith('From'):
         continue
     print(line)
+
