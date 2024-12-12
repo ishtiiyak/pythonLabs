@@ -7,29 +7,54 @@ for line in fhandle:
     print(line)
 
 def fibonacci(n):
-    # Initialize first two numbers in series
+    """
+    Generate first n numbers of the Fibonacci sequence.
+    
+    Args:
+        n (int): Number of Fibonacci numbers to generate
+    
+    Raises:
+        ValueError: If n is negative
+    """
+    if not isinstance(n, int):
+        raise TypeError("Input must be an integer")
+    if n < 0:
+        raise ValueError("Input must be non-negative")
+        
     a, b = 0, 1
-    # Print first n numbers in series
     for i in range(n):
         print(a, end=' ')
-        # Calculate next number and update values
         a, b = b, a + b
-    print() # New line at end
-
-# Test the function
-fibonacci(10) # Prints first 10 numbers in Fibonacci series
-
-
-
-
+    print()
 
 def factorial(n):
+    """
+    Calculate the factorial of n.
+    
+    Args:
+        n (int): Number to calculate factorial for
+        
+    Returns:
+        int: n!
+        
+    Raises:
+        ValueError: If n is negative
+    """
+    if not isinstance(n, int):
+        raise TypeError("Input must be an integer")
+    if n < 0:
+        raise ValueError("Input must be non-negative")
+        
     if n == 0 or n == 1:
         return 1
-
     else:
         return n * factorial(n-1)
 
-print(factorial(5))
+# Test cases
+try:
+    fibonacci(10)
+    print(factorial(5))
+except (ValueError, TypeError) as e:
+    print(f"Error: {e}")
 
 
