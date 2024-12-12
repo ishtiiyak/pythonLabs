@@ -18,10 +18,14 @@ def fibonacci(n):
 # Test the function
 fibonacci(10) # Prints first 10 numbers in Fibonacci series
 
+
+
+
+
 def factorial(n):
     if n == 0 or n == 1:
         return 1
-        
+
     else:
         return n * factorial(n-1)
 
