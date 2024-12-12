@@ -36,7 +36,6 @@ class BankTransactionAnalyzer:
 
 
 
-student.load_data('input.txt')
 student = BankTransactionAnalyzer('001', 'Alice', '2023-11-22', 'Deposit', 10000)
 
 withdrawal = student.total_amount_by_type("Withdrawal")
