@@ -31,12 +31,12 @@ class OvernightPackage(Package):
         return self.weight * (self.cost_per_ounce + self.fee_per_ounce)
 
 
-# Example usage
-package1 = Package("Ahmad", "110", "City", "State", "ZIPcodeSender", "ZIPcodeReceiver", 12, 3)
+
+package1 = Package("Ahmad", "110", "Lahore", "Punjab", "5001", "1200", 12, 3)
 print("Package1 Cost:", package1.calculate_cost())
 
-package2 = TwoDayPackage("Ali", "2201", "City", "State", "ZIPcodeSender", "ZIPcodeReceiver", 6, 7, 5)
+package2 = TwoDayPackage("Ali", "2201", "Karachi", "Sindh", "8000", "9000", 6, 7, 5)
 print("TwoDayPackage Cost:", package2.calculate_cost())
 
-package3 = OvernightPackage("Sara", "110", "City", "State", "ZIPcodeSender", "ZIPcodeReceiver", 8, 4, 2)
+package3 = OvernightPackage("Sara", "110", "nagar", "gb", "12000", "5000", 8, 4, 2)
 print("OvernightPackage Cost:", package3.calculate_cost())
