@@ -54,10 +54,10 @@ class OvernightPackage(Package):
         self.flatfee=flatfee
     
 
-package1=Package("name","address","city","state","ZIPcodeSender","ZIPcodeReceiver",12,3)
+package1=Package("Ahmad","110","city","state","ZIPcodeSender","ZIPcodeReceiver",12,3)
 print(package1.weight)
 print(package1.cost_per_ounce)
 
-package2=TwoDayPackage("name","address","city","state","ZIPcodeSender","ZIPcodeReceiver",6,7)
+package2=TwoDayPackage("Ali","2201","city","state","ZIPcodeSender","ZIPcodeReceiver",6,7)
 print(package2.weight)
 package3=OvernightPackage("name","address","city","state","ZIPcode",10)
